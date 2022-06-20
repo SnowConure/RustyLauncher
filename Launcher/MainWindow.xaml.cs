@@ -58,6 +58,17 @@ namespace Launcher
 
             rootPath = Directory.GetCurrentDirectory();
 
+            if (!File.Exists(rootPath + "Local.txt"))
+            {
+                File.Create(rootPath + "Local.txt");
+
+                //This will save some text to a file in the same folder as your project exe file
+                using (StreamWriter sw = File.CreateText("Local.txt"))
+                {
+                    sw.Write("NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;");
+                }
+            }
+
             localFile = ReadFullLocalFile();
 
             AwsUploader downloader = new AwsUploader();
@@ -68,6 +79,8 @@ namespace Launcher
             // first time setup games folder
             if(!Directory.Exists(rootPath + "/Games"))
                 Directory.CreateDirectory(rootPath + "/Games");
+           
+
 
             Loaded += MainWindow_Loaded;
         }
@@ -76,9 +89,8 @@ namespace Launcher
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            if(!Debugger.IsAttached)
             updateManager = await UpdateManager.GitHubUpdateManager(@"https://github.com/SnowConure/RustyLauncher");
-
-            
 
             //  updateManager.UpdateApp();
 
