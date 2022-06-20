@@ -95,6 +95,8 @@ namespace Launcher
             //  updateManager.UpdateApp();
 
             // updateManager.CurrentlyInstalledVersion();
+
+            CheckForUpdates();
         }
 
         private async void CheckForUpdates()
