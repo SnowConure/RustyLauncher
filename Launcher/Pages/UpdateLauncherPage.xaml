@@ -17,7 +17,71 @@
                     Foreground="{StaticResource BaseRedBrush}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
-                    Margin="0,103,0,0"/>
+                    Margin="0,78,0,0"/>
 
+        <Button 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="246"
+                 Height="68"
+                    Content="Update!"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    FontSize="30"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    BorderThickness="0" Click="Button_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{StaticResource BaseRedBrush}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource DarkBaseRedBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button 
+            
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="104"
+                 Height="26"
+                    Content="Ignore Update"
+                    FontFamily="Brutal Type"
+                    FontSize="12"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    BorderThickness="0"
+                    Margin="0,310,0,0" Click="Button_Click_1">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FF252525"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF202020"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </Page>

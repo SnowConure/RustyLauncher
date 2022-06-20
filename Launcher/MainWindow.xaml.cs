@@ -43,7 +43,7 @@ namespace Launcher
         public string user;
         public LauncherStatus launcherStatus = LauncherStatus.ready;
 
-        UpdateManager updateManager;
+        public UpdateManager updateManager;
 
         int newGameID;
         string[] newGame;
@@ -78,14 +78,27 @@ namespace Launcher
         {
             updateManager = await UpdateManager.GitHubUpdateManager(@"https://github.com/SnowConure/RustyLauncher");
 
-            //Check for update
-            // var updateInfo = await updateManager.CheckForUpdate();
-
-            //if updateInfo.ReleasesToApply.Count > 0
+            
 
             //  updateManager.UpdateApp();
 
             // updateManager.CurrentlyInstalledVersion();
+        }
+
+        private async void CheckForUpdates()
+        {
+            //Check for update
+            var updateInfo = await updateManager.CheckForUpdate();
+
+            if (updateInfo.ReleasesToApply.Count > 0)
+            {
+                MainFrame.Navigate(new Uri("Pages/UpdateLauncherPage.xaml", UriKind.RelativeOrAbsolute));
+            }
+        }
+
+        public async void UpdateLauncher()
+        {
+            await updateManager.UpdateApp();
         }
 
         #endregion

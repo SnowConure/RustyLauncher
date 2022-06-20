@@ -26,7 +26,14 @@ namespace Launcher.Pages
             InitializeComponent();
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)Application.Current.MainWindow).UpdateLauncher();
+        }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new Uri("Pages/SignInPage.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }
