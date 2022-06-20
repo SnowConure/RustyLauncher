@@ -105,6 +105,9 @@ namespace Launcher
             if (updateInfo.ReleasesToApply.Count > 0)
             {
                 MainFrame.Navigate(new Uri("Pages/UpdateLauncherPage.xaml", UriKind.RelativeOrAbsolute));
+            } else
+            {
+                MainFrame.Navigate(new Uri("Pages/SignInPage.xaml", UriKind.RelativeOrAbsolute));
             }
         }
 
