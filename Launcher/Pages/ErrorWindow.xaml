@@ -1,0 +1,71 @@
+﻿<Window x:Class="Launcher.Pages.ErrorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Launcher.Pages"
+        mc:Ignorable="d" Height="400" Width="600" 
+        WindowStyle="None"
+        Style="{StaticResource {x:Type Window}}"
+        Title="ErrorWindow"
+        Background="{StaticResource MainBackgroundBrush}"
+        Foreground="White"
+         WindowStartupLocation="CenterScreen"
+        >
+    <Grid 
+        
+        VerticalAlignment="Center"
+        HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Text="ERROR!"
+            FontFamily="Brutal Type"
+            FontWeight="Bold"
+            FontSize="50" Margin="0,21,0,0"
+            Foreground="{StaticResource BaseRedBrush}"
+            />
+        <TextBlock
+            x:Name="ErrorMessage"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Text="No Error Found"
+            FontFamily="Brutal Type"
+            FontWeight="Bold"
+            FontSize="30" Margin="0,105,0,0"
+            Foreground="White" Height="200" Width="396" TextAlignment="Center"
+            />
+        <Button 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="198"
+                 Height="43"
+                    Content="OK"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    FontSize="17"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    BorderThickness="0"
+                    Margin="0,278,0,0" Click="Button_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{StaticResource BaseRedBrush}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource DarkBaseRedBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>

@@ -1,0 +1,112 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\RustyLauncher Logo.ico</ApplicationIcon>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Local.txt" />
+    <None Remove="Resources\002.png" />
+    <None Remove="Resources\brave.png" />
+    <None Remove="Resources\default.gif" />
+    <None Remove="Resources\kow.png" />
+    <None Remove="Resources\otmm.png" />
+    <None Remove="Resources\ps.png" />
+    <None Remove="Resources\psr.png" />
+    <None Remove="Resources\rrls.png" />
+    <None Remove="Resources\RustyLauncher Logo.ico" />
+    <None Remove="Resources\Screenshot1.png" />
+    <None Remove="Resources\Screenshot2.png" />
+    <None Remove="Resources\Screenshot3.png" />
+    <None Remove="Resources\Screenshot4.png" />
+    <None Remove="Resources\Screenshot5.png" />
+    <None Remove="Resources\Screenshot6.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\RustyLauncher Logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Local.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\002.png" />
+    <Resource Include="Resources\brave.png" />
+    <Resource Include="Resources\default.gif" />
+    <Resource Include="Images\Screenshot1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\kow.png" />
+    <Resource Include="Resources\otmm.png" />
+    <Resource Include="Resources\ps.png" />
+    <Resource Include="Resources\psr.png" />
+    <Resource Include="Resources\rrls.png" />
+    <Resource Include="Resources\RustyLauncher Logo.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Screenshot2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Screenshot3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Screenshot4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Screenshot5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Screenshot6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amazon.CDK.AWS.S3" Version="1.160.0" />
+    <PackageReference Include="AWSSDK.S3" Version="3.7.9.16" />
+    <PackageReference Include="NuGet.CommandLine" Version="6.2.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="squirrel.windows" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\RegisterAccountPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Pages\RegisterAccountPage.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <NugetTools>$(PkgNuGet_CommandLine)\tools</NugetTools>
+    <SquirrelTools>$(PkgSquirrel_windows)\tools</SquirrelTools>
+
+    <Version>1.0.0</Version>
+
+    <NuspecFile>$(SolutionDir)Launcher\ReleaseSpec.nuspec</NuspecFile>
+  </PropertyGroup>
+
+  <Target Name="GenerateRelease" AfterTargets="AfterBuild" Condition="$(Configuration) == Release">
+    <XmlPeek XmlInputPath="$(NuspecFile)" Query="/package/metadata/id/text()">
+      <Output TaskParameter="Result" ItemName="ID" />
+    </XmlPeek>
+
+    <Exec Command="$(NugetTools)\NuGet.exe pack $(NuspecFile) -Version $(Version) -Properties Configuration=Release -OutputDirectory $(SolutionDir)Deployment\GeneratedNugets" />
+
+    <Exec Command="$(SquirrelTools)\Squirrel.exe --releasify $(SolutionDir)Deployment\GeneratedNugets\@(ID).$(Version).nupkg --releaseDir=$(SolutionDir)Deployment\Releases" />
+  </Target>
+  
+</Project>

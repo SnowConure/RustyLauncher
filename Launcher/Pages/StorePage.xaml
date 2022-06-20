@@ -1,0 +1,313 @@
+﻿<Page x:Class="Launcher.Pages.StorePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Launcher.Pages"
+      xmlns:control = "clr-namespace:Launcher.CustomControls"
+      mc:Ignorable="d" 
+      d:DesignHeight="869" d:DesignWidth="1400"
+      Title="StorePage">
+    <Grid>
+        <Grid Margin="177,0,10,446" Background="#141414" VerticalAlignment="Top">
+
+            <TextBlock
+                    Text="Games"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                FontSize="28"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                    Foreground="{StaticResource CaptionFontBrush}" Height="32" Width="113" Margin="10,19,0,0"/>
+
+            <ScrollViewer Height="360" HorizontalScrollBarVisibility="Visible" Margin="10,63,0,0" VerticalScrollBarVisibility="Disabled" CanContentScroll="True" >
+                <WrapPanel Height="393"
+                    Orientation="Vertical"
+                    >
+                    <control:LibraryItemCard
+                    x:Name="Game1"
+                    ImageSource="../Resources/brave.png"
+                    Margin="0,0,20,0"
+                    Title="Far Locked"
+                    GameID="1"
+                        />
+                    <control:LibraryItemCard
+                    x:Name="Game2"
+                    ImageSource="../Resources/psr.png"
+                    Margin="0,0,20,0"
+                    Title="Project: Shelter (Remake)"
+                    GameID="2"
+                        />
+                    <control:LibraryItemCard
+                    x:Name="Game3"
+                    ImageSource="../Resources/kow.png"
+                    Margin="0,0,20,0"
+                    Title="Kowalski Out Walking"
+                    GameID="3"
+                        />
+                    <control:LibraryItemCard
+                    x:Name="Game4"
+                    ImageSource="../Resources/ps.png"
+                    Margin="0,0,20,0"
+                    Title="Project: Shelter"
+                    GameID="4"
+                        />
+                    <control:LibraryItemCard
+                    x:Name="Game5"
+                    ImageSource="../Resources/otmm.png"
+                    Margin="0,0,20,0"
+                    Title="One Try Murder Mystery"
+                    GameID="5"
+                        />
+                    <control:LibraryItemCard
+                    x:Name="Game6"
+                    ImageSource="../Resources/rrls.png"
+                    Title="Rapid Rabid Lethal Smash"
+                    Margin="0,0,20,0"
+                    GameID="6"
+                        />
+
+                </WrapPanel>
+            </ScrollViewer>
+
+        </Grid>
+        <Grid
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="172"
+            Height="852"
+            Background="#FF191919"
+            
+            >
+            <Button 
+                    Name="LogoutButton"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="110"
+                    Height="34"
+                    Content="Sign Out"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    FontSize="20"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    BorderThickness="0"
+                    Click="LogoutButton_Click" Margin="0,370,0,0"
+                    >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="{StaticResource BaseRedBrush}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource DarkBaseRedBrush}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Viewbox
+                HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0,12,0,0"
+                    Width="110"
+                    MaxHeight="50">
+                <TextBlock
+                    x:Name="Username"
+                    Text="Username"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    VerticalAlignment="Top"
+                    Foreground="{StaticResource CaptionFontBrush}"/>
+            </Viewbox>
+
+        </Grid>
+        <Image Source="../Resources/default.gif" Margin="344,466,344,0"/>
+        <Grid
+            Name="GameFocusBar"
+            Margin="0,428,0,0"
+            Background="#FF202020"
+            Visibility="Visible"
+            VerticalAlignment="Stretch" Height="Auto"
+            >
+            <TextBlock
+                x:Name="GameTitle"
+                Text="Rusty Launcher"
+                HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                Foreground="White"
+                FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    FontSize="30" Margin="0,22,15,0"
+                TextAlignment="Center" Width="625"
+                />
+            <TextBlock
+                x:Name="GameDescription"
+                Text="Hello! Thank you for downloading this launcher. here you can find every game I've made. Most of them are incomplete, but I thought maybe someone might want to see what kind of trash I can make... Welp, anyways, to download a game click on one of the banners above and then press the download button. Duh... the games gets downloaded to the same disk as this launcher is installed to. But dont worry you can uninstall the games from this launcher so you dont need to try to find it directory explorer.
+                &#10;
+                &#10;// Simon aka SnowConure / Whiblee / Short Fucker / Din Mamma"
+                Foreground="White"
+                FontFamily="Brutal Type"
+                    FontSize="20" Margin="0,68,15,0"
+                TextAlignment="Left"
+                TextWrapping="WrapWithOverflow"
+                 HorizontalAlignment="Right"
+                    VerticalAlignment="Top" Height="260" Width="625"
+                />
+            <Border CornerRadius="10" BorderThickness="5" BorderBrush="#141414" Margin="22,22,658,22">
+                <Border.Background>
+                    <ImageBrush x:Name="PreviewScreen" Stretch="UniformToFill" ImageSource="../Resources/002.png"/>
+                </Border.Background>
+            </Border>
+
+
+            <Button 
+                    Name="LaunchButton"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Width="270"
+                    Height="86"
+                    Content="Download"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    FontSize="36"
+                Visibility="Collapsed"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    BorderThickness="0"
+                    Click="LaunchButton_Click" Margin="0,0,370,22"
+                    >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="{StaticResource BaseRedBrush}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource DarkBaseRedBrush}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button 
+                    x:Name="UninstallButton"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Width="43"
+                    Height="42"
+                    Content="&#xE74D;"
+                    FontFamily="Segoe MDL2 Assets"
+                    Visibility="Collapsed"
+                    FontSize="28"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    BorderThickness="0"
+                    Click="UninstallButton_Click" Margin="0,0,15,15"
+                    >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="{StaticResource BaseRedBrush}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource DarkBaseRedBrush}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <ProgressBar
+            x:Name="DownloadProgress"
+            Foreground="White"
+            Height="70"
+            Width="70"
+            Margin="860,341,0,0"
+            Visibility="Collapsed"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            IsIndeterminate="True"
+            Style="{StaticResource CircularProgressBar}"/>
+        </Grid>
+
+        <Grid
+            x:Name="AdminGrid"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Margin="0,0,0,0"
+            Height="190"
+            Width="1318"
+            Visibility="Collapsed">
+
+            <TextBox 
+                x:Name="AdminConsole"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                     FontSize="20"
+                Background="#333333"
+                Foreground="White"
+                Margin="46,-439,73,145"
+                BorderThickness="3"
+                TextWrapping="WrapWithOverflow"
+                Text=""
+                BorderBrush="{StaticResource BaseRedBrush}"
+                />
+            <Button 
+                    Name="AdminButton"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Width="146"
+                    Height="48"
+                    Content="Upload To Cloud"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    FontSize="17"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    BorderThickness="0"
+                    Click="AdminButton_Click" Margin="1172,0,0,10"
+                    >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="{StaticResource BaseRedBrush}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource DarkBaseRedBrush}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </Grid>
+
+    </Grid>
+</Page>

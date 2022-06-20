@@ -1,0 +1,178 @@
+﻿<Page x:Class="Launcher.Pages.RegisterAccountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Launcher.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="829" d:DesignWidth="1538"
+      Title="RegisterAccountPage">
+
+    <Grid>
+        <Border
+            MinHeight="773"
+            MinWidth="550"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" Background="#FF202020" Height="773" Width="550">
+            <Grid>
+                <Path
+                    Data="{StaticResource RustyLogo}"
+                    Width="73"
+                    Margin="0,33,0,0"
+                    Style="{StaticResource RustyLogoStyle}" Height="78" Stretch="Fill"/>
+                <TextBlock
+                    Text="REGISTER NEW ACCOUNT"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    FontSize="35"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0,134,0,0"/>
+                <TextBlock
+                    Text="USERNAME"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    FontSize="17"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="42,224,0,0"/>
+                <TextBlock
+                    x:Name="UsernameError"
+                    Text="Username Already Taken"
+                    FontFamily="Brutal Type"
+                    FontSize="13"
+                    Foreground="{StaticResource BaseRedBrush}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0,226,0,0"
+                    Visibility="Hidden"/>
+                <TextBlock
+                    Text="PASSWORD"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    FontSize="17"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="41,342,0,0"/>
+
+                <TextBox
+                    x:Name="UsernameField"
+                 HorizontalAlignment="Center"
+                 Margin="0,250,0,0"
+                 TextWrapping="Wrap"
+                 FontFamily="Brutal Type"
+                 FontWeight="Bold"
+                 VerticalAlignment="Top"
+                 Width="468"
+                 Height="58"
+                 FontSize="30"
+                 Padding="7,11,0,0"
+                 Foreground="{StaticResource CaptionFontBrush}"
+                 Background="{StaticResource MainBackgroundBrush}"
+                    BorderThickness="0"
+                    />
+                <PasswordBox
+                    x:Name="PasswordField"
+                    HorizontalAlignment="Center"
+                 Margin="0,368,0,0"
+                 FontFamily="Brutal Type"
+                 FontWeight="Bold"
+                 VerticalAlignment="Top"
+                 Width="468"
+                 Height="60"
+                 FontSize="30"
+                 Padding="7,11,0,0"
+                 Foreground="{StaticResource CaptionFontBrush}"
+                 Background="{StaticResource MainBackgroundBrush}"
+                 BorderThickness="0"
+                 />
+                <Button 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="284"
+                 Height="61"
+                    Content="CREATE ACCOUNT"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    FontSize="17"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    BorderThickness="0"
+                    Margin="0,650,0,0" Click="Register_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="{StaticResource BaseRedBrush}"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource DarkBaseRedBrush}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <TextBlock
+                    Foreground="{StaticResource DisabledFontBrush}"
+                    FontFamily="Brutal Type"
+                    FontSize="14"
+                    TextAlignment="Center"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0,743,0,0"
+                    LineHeight="20">
+                    <Hyperlink
+                        Click="Hyperlink_Click"
+                        Foreground="{StaticResource CaptionFontBrush}"
+                        FontWeight="Bold"
+                        TextDecorations="None"
+                        >
+                        Back To Login Page
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    FontSize="17"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="41,469,0,0"><Run Language="sv-se" Text="CONFIRM PASSWORD"/></TextBlock>
+                <PasswordBox
+                    x:Name="PasswordField2"
+                    HorizontalAlignment="Center"
+                    Margin="0,493,0,0"
+                    FontFamily="Brutal Type"
+                    FontWeight="Bold"
+                    VerticalAlignment="Top"
+                    Width="468"
+                    Height="62"
+                    FontSize="30"
+                    Padding="7,11,0,0"
+                    Foreground="{StaticResource CaptionFontBrush}"
+                    Background="{StaticResource MainBackgroundBrush}"
+                    BorderThickness="0"
+                    />
+                <TextBlock
+                    x:Name="PasswordError"
+                    Text="Passwords Dont Match"
+                    FontFamily="Brutal Type"
+                    FontSize="13"
+                    Foreground="{StaticResource BaseRedBrush}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="211,344,0,0"
+                    Visibility="Hidden"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
