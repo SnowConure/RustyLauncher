@@ -38,13 +38,7 @@
                     Title="Project: Shelter (Remake)"
                     GameID="2"
                         />
-                    <control:LibraryItemCard
-                    x:Name="Game3"
-                    ImageSource="../Resources/kow.png"
-                    Margin="0,0,20,0"
-                    Title="Kowalski Out Walking"
-                    GameID="3"
-                        />
+                   
                     <control:LibraryItemCard
                     x:Name="Game4"
                     ImageSource="../Resources/ps.png"
@@ -66,7 +60,13 @@
                     Margin="0,0,20,0"
                     GameID="6"
                         />
-
+                    <control:LibraryItemCard
+                    x:Name="Game3"
+                    ImageSource="../Resources/kow.png"
+                    Margin="0,0,20,0"
+                    Title="Kowalski Out Walking"
+                    GameID="3"
+                        />
                 </WrapPanel>
             </ScrollViewer>
 
