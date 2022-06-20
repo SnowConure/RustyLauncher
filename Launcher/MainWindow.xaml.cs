@@ -43,6 +43,8 @@ namespace Launcher
         public string user;
         public LauncherStatus launcherStatus = LauncherStatus.ready;
 
+        UpdateManager updateManager;
+
         int newGameID;
         string[] newGame;
 
@@ -67,18 +69,23 @@ namespace Launcher
             if(!Directory.Exists(rootPath + "/Games"))
                 Directory.CreateDirectory(rootPath + "/Games");
 
-            _ = Updater();
+            Loaded += MainWindow_Loaded;
         }
 
         #region Squirrel
 
-        public async Task Updater()
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            using (var mgr = new UpdateManager(rootPath + "\\Releases"))
-            {
-                await mgr.UpdateApp();
-            }
+            updateManager = await UpdateManager.GitHubUpdateManager(@"https://github.com/SnowConure/RustyLauncher");
 
+            //Check for update
+            // var updateInfo = await updateManager.CheckForUpdate();
+
+            //if updateInfo.ReleasesToApply.Count > 0
+
+            //  updateManager.UpdateApp();
+
+            // updateManager.CurrentlyInstalledVersion();
         }
 
         #endregion
