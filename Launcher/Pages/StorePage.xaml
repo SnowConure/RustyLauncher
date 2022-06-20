@@ -38,7 +38,7 @@
                     Title="Project: Shelter (Remake)"
                     GameID="2"
                         />
-                   
+
                     <control:LibraryItemCard
                     x:Name="Game4"
                     ImageSource="../Resources/ps.png"
@@ -202,7 +202,19 @@
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
+
             </Button>
+            <ProgressBar
+            x:Name="DownloadProgress"
+            Foreground="White"
+            Height="70"
+            Width="70"
+            Margin="0,0,470,30"
+            Visibility="Collapsed"
+             HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+            IsIndeterminate="True"
+            Style="{StaticResource CircularProgressBar}"/>
             <Button 
                     x:Name="UninstallButton"
                     HorizontalAlignment="Right"
@@ -237,17 +249,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <ProgressBar
-            x:Name="DownloadProgress"
-            Foreground="White"
-            Height="70"
-            Width="70"
-            Margin="860,341,0,0"
-            Visibility="Collapsed"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            IsIndeterminate="True"
-            Style="{StaticResource CircularProgressBar}"/>
+
         </Grid>
 
         <Grid
