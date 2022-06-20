@@ -26,6 +26,9 @@ namespace Launcher.Pages
         public LoadingPage()
         {
             InitializeComponent();
+
+            ((MainWindow)Application.Current.MainWindow).MainWindow_Loaded();
+
             _dispatcherTimer.Tick += _dispatcherTimer_Tick;
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
             _dispatcherTimer.Start();

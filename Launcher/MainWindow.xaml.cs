@@ -81,13 +81,11 @@ namespace Launcher
                 Directory.CreateDirectory(rootPath + "/Games");
            
 
-
-            Loaded += MainWindow_Loaded;
         }
 
         #region Squirrel
 
-        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        public async void MainWindow_Loaded()
         {
             if(!Debugger.IsAttached)
             updateManager = await UpdateManager.GitHubUpdateManager(@"https://github.com/SnowConure/RustyLauncher");

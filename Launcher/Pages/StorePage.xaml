@@ -150,7 +150,7 @@
                 />
             <TextBlock
                 x:Name="GameDescription"
-                Text="Hello! Thank you for downloading this launcher. here you can find every game I've made. Most of them are incomplete, but I thought maybe someone might want to see what kind of trash I can make... Welp, anyways, to download a game click on one of the banners above and then press the download button. Duh... the games gets downloaded to the same disk as this launcher, Probably your C Drive. But dont worry you can uninstall the games from this launcher so you dont need to try to find it directory explorer. But if you want to know its under %LocalAppdata%Launcher.
+                Text="Hello! Thank you for downloading this launcher. here you can find every game I've made. Most of them are incomplete, but I thought maybe someone might want to see what kind of trash I can make... Welp, anyways, to download a game click on one of the banners above and then press the download button. Duh... the games gets downloaded to the same disk as this launcher, Probably your C Drive. But dont worry you can uninstall the games from this launcher so you dont need to try to find it directory explorer. But if you want to know its under %LocalAppdata%RustyLauncher.
                 &#10;
                 &#10;// Simon aka SnowConure / Whiblee / Short Fucker / Din Mamma"
                 Foreground="White"
