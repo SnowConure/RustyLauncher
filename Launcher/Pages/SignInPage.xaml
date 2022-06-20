@@ -30,7 +30,7 @@
                     VerticalAlignment="Top"
                     Margin="0,169,0,0"/>
                 <TextBlock
-                    Text="USERNAMEE"
+                    Text="USERNAME"
                     FontFamily="Brutal Type"
                     FontWeight="Bold"
                     FontSize="17"
