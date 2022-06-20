@@ -114,6 +114,9 @@ namespace Launcher
         public async void UpdateLauncher()
         {
             await updateManager.UpdateApp();
+
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
 
         #endregion
