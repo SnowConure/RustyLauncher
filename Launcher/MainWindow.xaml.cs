@@ -87,7 +87,7 @@ namespace Launcher
 
         public async void MainWindow_Loaded()
         {
-            if(!Debugger.IsAttached)
+            //if(!Debugger.IsAttached)
             updateManager = await UpdateManager.GitHubUpdateManager(@"https://github.com/SnowConure/RustyLauncher");
 
             //  updateManager.UpdateApp();
