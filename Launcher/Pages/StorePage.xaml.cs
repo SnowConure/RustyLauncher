@@ -55,6 +55,16 @@ namespace Launcher.Pages
             Game5.Status = CheckVersion(5, Game5);
         }
 
+        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollViewer scrollviewer = sender as ScrollViewer;
+            if (e.Delta > 0)
+                scroll.LineLeft();
+            else
+                scroll.LineRight();
+            e.Handled = true;
+        }
+
         public string CheckVersion(int GameID, LibraryItemCard _gameCard)
         {
             string[] gameStats = ((MainWindow)Application.Current.MainWindow).ReadFile(GameID);

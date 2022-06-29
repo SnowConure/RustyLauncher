@@ -39,8 +39,8 @@ namespace Launcher.Pages
                 {
 
                     // compare to password
-                    if (password.Password.ToString() == credentials[i-1])
-                    {
+                   // if (password.Password.ToString() == credentials[i-1])
+                    //{
                         // Corrent Password
                         // Log In
                         ((MainWindow)Application.Current.MainWindow).user = credentials[i];
@@ -49,7 +49,7 @@ namespace Launcher.Pages
                         if (Application.Current.MainWindow != null)
                             ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new Uri("Pages/PrepareingToLaunchStore.xaml", UriKind.RelativeOrAbsolute));
                         return;
-                    }
+                    //}
                 }
             }
 
@@ -61,10 +61,10 @@ namespace Launcher.Pages
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-            AwsUploader downloader = new AwsUploader();
+           /* AwsUploader downloader = new AwsUploader();
             downloader.UploadStatic();
             if (Application.Current.MainWindow != null)
-                ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new Uri("Pages/RegisterAccountPage.xaml", UriKind.RelativeOrAbsolute));
+                ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new Uri("Pages/RegisterAccountPage.xaml", UriKind.RelativeOrAbsolute));*/
         }
     }
 }

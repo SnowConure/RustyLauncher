@@ -20,7 +20,7 @@
                 VerticalAlignment="Top"
                     Foreground="{StaticResource CaptionFontBrush}" Height="32" Width="113" Margin="10,19,0,0"/>
 
-            <ScrollViewer Height="360" HorizontalScrollBarVisibility="Visible" Margin="10,63,0,0" VerticalScrollBarVisibility="Disabled" CanContentScroll="True" >
+            <ScrollViewer x:Name="scroll" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" Height="360" HorizontalScrollBarVisibility="Visible" Margin="10,63,0,0" VerticalScrollBarVisibility="Disabled" CanContentScroll="True"  >
                 <WrapPanel Height="393"
                     Orientation="Vertical"
                     >

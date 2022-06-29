@@ -11,7 +11,7 @@ namespace Launcher.Converters
 {
     internal class AwsUploader
     {
-        string AWSAccessKey = "AKIAUBGDL2QQ5P5EW7YT";
+      /*  string AWSAccessKey = "AKIAUBGDL2QQ5P5EW7YT";
         string AWSSecretKey = "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";
 
         public void DownloadStatic()
@@ -24,9 +24,8 @@ namespace Launcher.Converters
         }
 
 
-        /*
          AwsUploader uploader = new AwsUploader();
-         uploader.UploadStatic();*/
+         uploader.UploadStatic();
         public void UploadStatic()
         {
             // input explained :
@@ -52,6 +51,6 @@ namespace Launcher.Converters
             request.Key = "Static.txt"; //file name up in S3
             request.FilePath = "Static.txt"; //local file name
             utility.Upload(request); //commensing the transfer
-        }
+        }*/
     }
 }

@@ -71,8 +71,8 @@ namespace Launcher
 
             localFile = ReadFullLocalFile();
 
-            AwsUploader downloader = new AwsUploader();
-            downloader.DownloadStatic();
+           /* AwsUploader downloader = new AwsUploader();
+            downloader.DownloadStatic();*/
 
 
 
@@ -233,8 +233,8 @@ namespace Launcher
 
             SaveFile();
 
-            AwsUploader uploader = new AwsUploader();
-            uploader.UploadStatic();
+            /*AwsUploader uploader = new AwsUploader();
+            uploader.UploadStatic();*/
         }
 
         public void UpdateLocalFileVariable(int gameID, string _newVersion)

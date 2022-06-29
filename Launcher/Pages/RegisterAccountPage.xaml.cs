@@ -80,8 +80,8 @@ namespace Launcher.Pages
 
             ((MainWindow)Application.Current.MainWindow).SaveFile();
 
-            AwsUploader uploader = new AwsUploader();
-            uploader.UploadStatic();
+           /* AwsUploader uploader = new AwsUploader();
+            uploader.UploadStatic();*/
 
             if (Application.Current.MainWindow != null)
                 ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new Uri("Pages/SignInPage.xaml", UriKind.RelativeOrAbsolute));
