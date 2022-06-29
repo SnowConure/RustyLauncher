@@ -58,20 +58,21 @@ namespace Launcher
 
             rootPath = Directory.GetCurrentDirectory();
 
-            if (!File.Exists(rootPath + "Local.txt"))
+            if (!File.Exists("Local.txt"))
             {
-                File.Create(rootPath + "Local.txt");
+
+                File.Create("Local.txt").Dispose();
 
                 //This will save some text to a file in the same folder as your project exe file
                 using (StreamWriter sw = File.CreateText("Local.txt"))
                 {
                     sw.Write("NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;NotInst;");
                 }
-            }
 
-            if (!File.Exists(rootPath + "Static.txt"))
+            }
+            if (!File.Exists("Static.txt"))
             {
-                File.Create(rootPath + "Static.txt");
+                File.Create(rootPath + "Static.txt").Dispose();
 
                 //This will save some text to a file in the same folder as your project exe file
                 using (StreamWriter sw = File.CreateText("Static.txt"))
@@ -307,7 +308,6 @@ namespace Launcher
 
         private string ReadFullLocalFile()
         {
-            
 
             string fileContents;
             using (StreamReader sr = File.OpenText("Local.txt"))
@@ -319,8 +319,8 @@ namespace Launcher
 
         public string ReadFullFile()
         {
-          
 
+         
 
             string fileContents;
             using (StreamReader sr = File.OpenText("Static.txt"))
