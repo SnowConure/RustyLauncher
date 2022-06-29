@@ -69,6 +69,18 @@ namespace Launcher
                 }
             }
 
+            if (!File.Exists(rootPath + "Static.txt"))
+            {
+                File.Create(rootPath + "Static.txt");
+
+                //This will save some text to a file in the same folder as your project exe file
+                using (StreamWriter sw = File.CreateText("Static.txt"))
+                {
+                    sw.Write("889864,Admin,1,q1,;Far Locked,0.1,https://drive.google.com/uc?export=download&id=1borpGcX4khtCuL21IcabFOZVGBlTsb0E&confirm=y,Far_Locked.exe,The game the one and only is currently working on,Temp,Temp,Temp,Temp,LAUNCHER UPDATE,1.0,;Project Shelter Remake,1.0,https://drive.google.com/uc?export=download&id=1BEphfH-y9kv9xSqSVOlDpqH6ZuTEvpao&confirm=y,Project Shelter Remake.exe,A Super short demo for a remake project for our first game,;Kowalski Out Walking,1.0,https://drive.google.com/uc?export=download&id=14k4QwQzlFqURyZUJglfSVH9zxJA5bGzU&confirm=y,GameJam2022.exe,A short puzzle game made for Mini Game Jam 2022,;Original Shelter,1.0,https://drive.google.com/uc?export=download&id=1qZqcQKtUU8IJxxLcMmfMJWvAp9GzZApq&confirm=y,ProjectShelter.exe,Original Build of Project: Shelter out first game ever made,;OneTryMurderMystery,1.0,https://drive.google.com/uc?export=download&id=1xtPWe17u6LB-X1_c0n_ssxizKxaXIMo6&confirm=y,One try murder mystery.exe,Short Interactive novel made in 2 days,;Rapid Smash,0.5,https://drive.google.com/uc?export=download&id=1cdPNS2cBXJZ8Qnm1IlCDRP726T0xcvUe&confirm=y,Rapid Rabid Lethal Smash.exe,A Smash like game with characters from different games idk bro. shit is not working for shit but you know ankan kan springa runt");
+                }
+
+            }
+
             localFile = ReadFullLocalFile();
 
            /* AwsUploader downloader = new AwsUploader();
@@ -197,7 +209,9 @@ namespace Launcher
         #region File Management
         public void GetData()
         {
+            
             gameFile = Decrypt(ReadFullFile());
+
         }
 
         public void UpdateGameFileVariable(int _game, int _varIndex, string _newVar)
@@ -293,6 +307,8 @@ namespace Launcher
 
         private string ReadFullLocalFile()
         {
+            
+
             string fileContents;
             using (StreamReader sr = File.OpenText("Local.txt"))
             {
@@ -303,6 +319,9 @@ namespace Launcher
 
         public string ReadFullFile()
         {
+          
+
+
             string fileContents;
             using (StreamReader sr = File.OpenText("Static.txt"))
             {
@@ -324,12 +343,15 @@ namespace Launcher
         // Function to return the modified String
         public static string Encrypt(string text)
         {
+            return text;
+
             var textBytes = System.Text.Encoding.ASCII.GetBytes(text);
             return System.Convert.ToBase64String(textBytes);
         }
 
         public static string Decrypt(string text)
         {
+            return text;
             var hex = System.Convert.FromBase64String(text);
             return System.Text.Encoding.ASCII.GetString(hex);
         }

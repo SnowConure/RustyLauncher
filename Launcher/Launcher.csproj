@@ -26,6 +26,7 @@
     <None Remove="Resources\Screenshot4.png" />
     <None Remove="Resources\Screenshot5.png" />
     <None Remove="Resources\Screenshot6.png" />
+    <None Remove="Static.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Static.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Local.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -94,7 +98,7 @@
     <NugetTools>$(PkgNuGet_CommandLine)\tools</NugetTools>
     <SquirrelTools>$(PkgSquirrel_windows)\tools</SquirrelTools>
 
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
 
     <NuspecFile>$(SolutionDir)Launcher\ReleaseSpec.nuspec</NuspecFile>
   </PropertyGroup>
